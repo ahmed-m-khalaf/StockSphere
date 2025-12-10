@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+/* ===== StockSphere Theme Configuration ===== */
+@theme {
+  /* Font Family - Futura-like */
+  --font-family-sans: 'Urbanist', 'Futura', 'Century Gothic', system-ui, sans-serif;
+
+  /* Action Blue (Trust Blue) - Primary CTA */
+  --color-primary-50: #e6f0ff;
+  --color-primary-100: #cce0ff;
+  --color-primary-200: #99c2ff;
+  --color-primary-300: #66a3ff;
+  --color-primary-400: #3385ff;
+  --color-primary-500: #0066ff;
+  --color-primary-600: #005ce6;
+  --color-primary-700: #0052cc;
+  --color-primary-800: #0047b3;
+  --color-primary-900: #003d99;
+
+  /* Success/Gain (Profit Green) */
+  --color-success-50: #e0f5ea;
+  --color-success-100: #b3e6cd;
+  --color-success-500: #00a96b;
+  --color-success-600: #00965e;
+
+  /* Loss/Warning (Loss Red) */
+  --color-danger-50: #fcebe9;
+  --color-danger-100: #f9cdca;
+  --color-danger-500: #e53935;
+  --color-danger-600: #d32f2f;
+
+  /* Dark Navy (Text & Containers) */
+  --color-navy: #1a1f36;
+  --color-navy-light: #2d3348;
+
+  /* Backgrounds */
+  --color-bg-light: #F8F9FA;
+  --color-bg-dark: #0f1119;
+  --color-surface-light: #ffffff;
+  --color-surface-dark: #1a1f2e;
+
+  /* Custom Animations */
+  --animate-fade-in: fade-in 0.4s ease-out;
+  --animate-slide-down: slide-down 0.3s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* ===== Base Styles ===== */
+@layer base {
+  html {
+    font-family: 'Urbanist', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  }
+
+  body {
+    background-color: var(--color-bg-light);
+    color: var(--color-navy);
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.dark body {
+    background-color: var(--color-bg-dark);
+    color: #e2e8f0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    background: #475569;
+  }
+}
+
+/* ===== Dark Mode Overrides ===== */
+@layer components {
+  html.dark .bg-white {
+    background-color: var(--color-surface-dark) !important;
+  }
+
+  html.dark .text-gray-900 {
+    color: #f1f5f9 !important;
+  }
+
+  html.dark .text-gray-800 {
+    color: #e2e8f0 !important;
+  }
+
+  html.dark .text-gray-700 {
+    color: #cbd5e1 !important;
+  }
+
+  html.dark .text-gray-600 {
+    color: #94a3b8 !important;
+  }
+
+  html.dark .text-gray-500 {
+    color: #64748b !important;
+  }
+
+  html.dark .border-gray-100,
+  html.dark .border-gray-200 {
+    border-color: #334155 !important;
+  }
+
+  html.dark .bg-gray-50 {
+    background-color: #1a2633 !important;
+  }
+
+  html.dark .bg-gray-100 {
+    background-color: #243240 !important;
+  }
+}
